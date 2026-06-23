@@ -27,6 +27,17 @@ export async function getArticleById(req, res) {
   }
 }
 
+// GET /api/journalists/:id/articles
+export async function getJournalistArticles(req, res) {
+  try {
+    const articles = await getArticlesByJournalistId(req.params.id);
+
+    res.json(articles);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 // POST /api/articles
 export async function createArticle(req, res) {
   try {
@@ -65,3 +76,5 @@ export async function deleteArticle(req, res) {
     res.status(500).json({ message: "Server error" });
   }
 }
+
+//

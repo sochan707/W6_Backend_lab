@@ -28,6 +28,17 @@ export const removeArticle = async (id) => {
   return response.data;
 };
 
+export async function getArticlesByJournalistId(id) {
+  const response = await fetch(
+    `http://localhost:3000/api/journalists/${id}/articles`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch articles");
+  }
+
+  return response.json();
+}
 
 // OLD VERSION - MOCK
 

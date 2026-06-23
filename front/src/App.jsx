@@ -31,6 +31,11 @@ function App() {
           element={<ArticleForm isEdit={true} />}
         />
         <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route
+          path="/journalists/:id/articles"
+          element={<JournalistArticlesPage />}
+        />
+        
       </Routes>
     </BrowserRouter>
   );
